@@ -59,7 +59,7 @@
 
 	$simbolo_moneda="$"; // Simbolo de la moneda, se puede cambiar por el que se necesite
     // GET the HTML
-    include(dirname('__FILE__').'/res/print_remision_html.php');
+    include(dirname('__FILE__').'/res/print_remision_oc_html.php');
    ?>
    <input type="hidden" id="letra" value="<?php echo $letra_ventas  ?>" >
    <input type="hidden" id="numero_factura" value="<?php echo $numero_factura  ?>" >
