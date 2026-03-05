@@ -206,6 +206,17 @@ $open_usuarios   = nav_open(['/usuarios/']);
         </li>
 
         <!-- =========================FIN RECEPCIONES========================= -->
+
+        <!--==================== FACTURACION ================= -->
+        <li class="nav-item">
+          <a href="../facturacion/index.php" class="nav-link <?php echo nav_active(['/facturacion/']); ?>">
+            <i class="bi bi-receipt-cutoff"></i>
+            <p>
+              FACTURACIÓN
+            </p>
+          </a>
+        </li>
+        <!--==================== FIN FACTURACION ================= -->
         <!-- ================= PRODUCTOS ================= -->
         <li class="nav-item <?php echo $open_productos; ?>">
           <a href="#" class="nav-link ">
