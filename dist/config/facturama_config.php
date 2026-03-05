@@ -7,18 +7,18 @@ return [
   'sandbox' => true, // true = sandbox, false = producción
 
   // Credenciales Facturama (API Web)
-  'user' => 'TU_USUARIO_FACTURAMA',
-  'password' => 'TU_PASSWORD_FACTURAMA',
+  'user' => 'betitotapia',
+  'password' => 'Marifer2707',
 
   // Emisor (tu RFC único)
   'issuer' => [
-    'Rfc' => 'TU_RFC_EMISOR',
-    'Name' => 'TU_RAZON_SOCIAL_SIN_SOCIEDAD', // en mayúsculas y sin “S.A. DE C.V.”
-    'FiscalRegime' => '601', // c_RegimenFiscal
+    'Rfc' => 'TAAA830909SZ2',
+    'Name' => 'ALBERTO CARLOS TAPIA ANDRADE', // en mayúsculas y sin “S.A. DE C.V.”
+    'FiscalRegime' => '612', // c_RegimenFiscal
   ],
 
   // Sucursal / lugar de expedición (CP de la sucursal dada de alta en Facturama)
-  'expedition_place' => '06100',
+  'expedition_place' => '72499',
 
   // Serie/Folio internos (opcional)
   'default_serie' => 'A',

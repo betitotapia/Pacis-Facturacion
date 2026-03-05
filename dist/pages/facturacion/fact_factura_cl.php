@@ -48,7 +48,6 @@ $item=1;
 	$date_created=date("Y-m-d");
 
 	$insert_tmp=mysqli_query($con, "INSERT INTO detalle_fact_factura (nuemero_factura,id_producto,cantidad,precio_venta,id_almacen,id_vendedor,date_created) VALUES ('$numero_factura','$id_producto','$cantidad','$precio_venta','$almacen','$id_vendedor','$date_created')");
-
     }
     //  header("Location: ../nueva_factura_cl.php?id_factura=".$id_factura);
 	//  die();
