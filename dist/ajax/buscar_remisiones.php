@@ -174,8 +174,8 @@
                 <?php
 						if ($rj_usuario['is_admin']==1 || $rj_usuario['is_admin']==2 ){
 							if($status_fact=="ACTIVA"){
-						echo		
-						"<a href='' onclick='crear_factura(".$id_factura.");' class='btn btn-default bg_icons-highpurple btn-scale' title='Crear factura' ><i class='bi bi-receipt-cutoff'></i></a>";  
+						echo "<a href='#'onclick='crear_factura(".$numero_factura."); return false;'class='btn btn-default bg_icons-highpurple btn-scale'title='Crear factura'><i class='bi bi-receipt-cutoff'></i></a>"; 
+						
 						}	else {
 						echo"";
 						}

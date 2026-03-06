@@ -87,13 +87,14 @@ function imprimir_directo(id_factura, numero_factura, id_vendedor){
         + '&id_vendedor=' + id_vendedor
     );
 }
-function crear_factura(id_factura){
+
+function crear_factura(id_remision){
   Swal.fire({
-    title: 'Convertir remisión a factura',
-    text: 'Se generará una factura CFDI en borrador a partir de esta remisión terminada.',
+    title: 'Crear factura ' + id_remision,
+    text: 'Se creará una factura borrador desde esta remisión.',
     icon: 'question',
     showCancelButton: true,
-    confirmButtonText: 'Sí, convertir',
+    confirmButtonText: 'Sí, crear',
     cancelButtonText: 'Cancelar'
   }).then((result) => {
     if(!result.isConfirmed) return;
@@ -101,23 +102,20 @@ function crear_factura(id_factura){
     $.ajax({
       type: "POST",
       url: "../../ajax/convertir_remision_a_cfdi.php",
-      data: { id_factura: id_factura },
+      data: { id_remision: id_remision },
+      dataType: "json",
       success: function(resp){
-        try{
-          const r = JSON.parse(resp);
-          if(!r.ok){
-            Swal.fire('No se pudo', r.msg || 'Error', 'error');
-            return;
-          }
-          window.location.href = "../facturacion/cfdi_ver.php?id=" + r.id_cfdi_factura;
-        }catch(e){
-          console.error(resp);
-          Swal.fire('Error', 'Respuesta inválida del servidor', 'error');
+        if(resp.ok){
+          // Redirige al módulo de facturación ya con la factura creada
+          window.location.href = "../../pages/facturacion/nueva_factura.php?id=" + resp.id;
+        }else{
+          Swal.fire("Error", (resp.error || "No se pudo crear la factura"), "error");
         }
       },
       error: function(){
-        Swal.fire('Error', 'No se pudo conectar con el servidor', 'error');
+        Swal.fire("Error", "No se pudo conectar con el servidor.", "error");
       }
     });
+
   });
 }

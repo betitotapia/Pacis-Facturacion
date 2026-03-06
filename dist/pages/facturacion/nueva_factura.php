@@ -21,6 +21,17 @@ if ($id <= 0) {
 
   $no = 0; // si no manejas consecutivo aquí, déjalo 0 o calcula como uses en tu sistema
 
+  if ($id == 0 && $id_remision > 0) {
+  $ex = mysqli_query($con, "SELECT id_fact_facturas
+                            FROM fact_facturas
+                            WHERE id_remision = ".$id_remision."
+                            ORDER BY id_fact_facturas DESC
+                            LIMIT 1");
+  if ($e = mysqli_fetch_assoc($ex)) {
+    header("Location: nueva_factura.php?id=".(int)$e['id_fact_facturas']);
+    exit;
+  }
+}
   $sql = "INSERT INTO fact_facturas (id_remision, no_fact_factura, id_cliente, id_vendedor, total_factura, status_factura, validacion, date_created)
           VALUES (".($id_remision > 0 ? $id_remision : "NULL").", $no, 0, $id_vendedor, 0, 0, 0, NOW())";
   mysqli_query($con, $sql);
